@@ -1,0 +1,66 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+
+\usepackage[letterpaper, margin=1in, marginparwidth=0in, headheight=15pt]{geometry}
+\usepackage[scaled=.90]{helvet}
+\renewcommand\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+\let\mytodo\todo
+\let\todo\relax
+\usepackage{titlesec}
+\usepackage[labelfont=bf,font=it,justification=centering]{caption}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+\usepackage{tabto}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{multicol}
+\usepackage{etaremune}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{fontawesome}
+\usepackage{changepage}
+\usepackage{soul}
+\usepackage[raggedright]{sidecap}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,bookmarksnumbered,bookmarksdepth=3]{hyperref}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes}
+\newcommand{\mymk}[1]{%
+  \tikz[baseline=(char.base)]\node[anchor=south west, draw,rectangle, rounded corners, inner sep=2pt, minimum size=7mm,
+    text height=2mm](char){\ensuremath{#1}} ;}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+%\titleformat{\paragraph}[runin]{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}[ $\bullet$ \mbox{}]
+%\titlespacing*{\paragraph}{0pt}{1ex plus .5ex minus .2ex}{\the\fontdimen2\font}
+%\renewcommand{\thesection}{\Alph{section}}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}[{\titlerule[0.8pt]}]
+%\setlength{\parindent}{20pt}
+
+
+%-----------
+% DOCUMENT
+%-----------
+
+\begin{document}
+%\raggedbottom
+
+\input{head}
+\input{education}
+\input{employment}
+\input{field}
+\input{mission}
+\input{awards}
+\input{funding}
+\input{service}
+\input{supervision}
+\input{outreach}
+\input{press}
+\input{publications}
+\input{reports}
+\input{conferences}
+
+\end{document}
