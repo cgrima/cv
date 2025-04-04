@@ -24,8 +24,37 @@
 \usepackage{soul}
 \usepackage[raggedright]{sidecap}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,bookmarksnumbered,bookmarksdepth=3]{hyperref}
-\usepackage{soul}
 \usepackage{textcomp}
+\usepackage{academicons}
+\usepackage{filecontents}
+\usepackage{soul}
+
+\DeclareRobustCommand{\hlcyan}[1]{{\sethlcolor{cyan}\hl{#1}}}
+\DeclareRobustCommand{\hlgray}[1]{{\sethlcolor{lightgray}\hl{#1}}}
+
+\usepackage[style=ieee,sorting=none,maxbibnames=100, giveninits=true, sorting=ydnt]{biblatex}
+\addbibresource{references.bib}
+
+% Inline references
+%\defbibenvironment{bibliography}
+%  {}
+%  {}
+%  {\addspace\textbf{
+%   \printtext[labelnumberwidth]{%
+%     \printfield{prefixnumber}%
+%     \printfield{labelnumber}}}%
+%   }%\addlowpenspace}
+% Custom fields
+%\renewbibmacro{in:}{}
+\AtEveryBibitem{%
+  \clearfield{issn}%
+  \clearfield{doi}%
+  \clearfield{month}%
+  \ifentrytype{online}{}{% Remove url except for @online
+    \clearfield{url}
+  }
+}
+
 
 \usetikzlibrary{arrows}
 \usetikzlibrary{shapes}
@@ -51,20 +80,22 @@
 %\raggedbottom
 
 \input{head}
-\input{interests}
+%\tableofcontents
+\input{interests}\addcontentsline{toc}{section}{Interests}
 %\input{summary}
-\input{education}
-\input{employment}
-\input{field}
-\input{mission}
-\input{awards}
-\input{funding}
-\input{service}
-\input{supervision}
-\input{outreach}
-\input{press}
-\input{publications}
-\input{reports}
-\input{conferences}
+\input{education}\addcontentsline{toc}{section}{Education}
+\input{employment}\addcontentsline{toc}{section}{Employment}
+\input{field}\addcontentsline{toc}{section}{Field Experience}
+\input{mission}\addcontentsline{toc}{section}{Mission Experience}
+\input{awards}\addcontentsline{toc}{section}{Honors \& Awards}
+\input{funding}\addcontentsline{toc}{section}{Funding History}
+%\input{funding_detailed}\addcontentsline{toc}{section}{Funding History}
+\input{service}\addcontentsline{toc}{section}{Professional Service}
+\input{supervision}\addcontentsline{toc}{section}{Mentorship}
+\input{outreach}\addcontentsline{toc}{section}{Outreach}
+\input{press}\addcontentsline{toc}{section}{Press Releases}
+\input{publications}\addcontentsline{toc}{section}{Refereed Publications}
+\input{reports}\addcontentsline{toc}{section}{Academic and Technical Reports}
+\input{conferences}\addcontentsline{toc}{section}{Conferences}
 
 \end{document}
